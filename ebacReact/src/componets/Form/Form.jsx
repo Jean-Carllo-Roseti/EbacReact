@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputMask from 'react-input-mask';
+//import InputMask from 'react-input-mask'; //tentativa de uso de mask, n renderizou a pagina.
 
 
 const Formulario = () => {
