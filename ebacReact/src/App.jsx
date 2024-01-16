@@ -1,8 +1,9 @@
+import Cabecalho  from "./componets/Header/Header"
+
+
 function App() {
-
-
   return (
-    <h1>ola</h1>
+    <Cabecalho />
   )
 }
 
