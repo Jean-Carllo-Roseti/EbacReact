@@ -1,13 +1,17 @@
 import { useState } from "react";
+import InputMask from 'react-input-mask';
+
 
 const Formulario = () => {
 let [peso, setPeso] = useState(0);
 let [altura, setAltura] = useState(0);
 
+
 const exibeIMC = () => {
-    if (peso === 0 && altura === 0) {
-        return <p className="fs-5 resultado">Insira os dados</p>;
+    if (peso.toString().length < 2 || altura.toString().length < 2 || isNaN(peso) || isNaN(altura)) {
+        return <p className="fs-5 resultado">Insira os dados corretamente</p>;
     }
+    
 
     const resultante = peso / (altura * altura);
     const resultado = resultante.toFixed(1);
@@ -28,7 +32,7 @@ const exibeIMC = () => {
         return (
             <p className="fs-5 resultado" > Seu IMC é de ({resultado}), Você esta levemente acima do peso</p>
             )
-    } else if (resultado >= 186){
+    } else if (resultado >= 18.6){
         return (
             <p className="fs-5 resultado" > Seu IMC é de ({resultado}), Você esta no peso ideal </p>
             )
@@ -45,15 +49,15 @@ const exibeIMC = () => {
             <form className="form mt-4">
                 <div className="row justify-content-center">
                     <div className="col-2">
-                <input type="number" className="form-control peso " placeholder="Insira sua peso"   onChange={evento => setPeso(evento.target.value)}/>
+                <input type="number" className="form-control peso "  mask='000 KG' maskPlaceholder="_"  onChange={evento => setPeso(evento.target.value)}/>
                     </div>
                     <div className="col-2">
-                <input type="number" className="form-control altura" placeholder="Insira seu altura" onChange={evento => setAltura(evento.target.value)}  />
+                <input type="number" className="form-control altura" mask='0,00 CM'  maskPlaceholder="_"  onChange={evento => setAltura(evento.target.value)}  />
                     </div>
                 </div>
             </form>
             <div className="text-center p-5">
-                {exibeIMC()}
+                {  exibeIMC()}
             </div>
         </div>
     )
