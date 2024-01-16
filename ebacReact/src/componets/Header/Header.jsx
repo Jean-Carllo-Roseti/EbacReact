@@ -1,7 +1,9 @@
+import './Header.css'
+
 const Cabecalho = () => {
     return (
         <div>
-            <header className="bg-primary bg-opacity-75 text-white p-2">
+            <header className="bg-primary bg-opacity-75 text-white p-3">
                 <div className="text-center">
                     <h1 >Calcula Rápido</h1>
                 </div>
